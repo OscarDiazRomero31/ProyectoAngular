@@ -1,26 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { CocktailService } from '../cocktail.service';
+import { CarrouselComponent } from '../carrousel/carrousel.component';
 
 @Component({
   selector: 'app-home',
-  imports: [],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  imports: [CarrouselComponent],  // Importa CarrouselComponent
+  styleUrls: ['./home.component.css']
 })
-
 export class HomeComponent implements OnInit {
   cocktails: any[] = [];
-  projectDescription: string = "Bienvenido a nuestro buscador de cócteles. Aquí puedes encontrar recetas, imágenes y todo lo que necesitas para disfrutar de deliciosos cócteles.";
 
   constructor(private cocktailService: CocktailService) {}
 
   ngOnInit(): void {
-    this.getRandomCocktailImages();
+    this.getRandomCocktails();  // Llamamos al método para obtener cócteles aleatorios
   }
 
-  getRandomCocktailImages(): void {
-    this.cocktailService.getCocktailsByName("random").subscribe(data => {
-      this.cocktails = data.drinks; // Ajusta según la respuesta de tu API
+  getRandomCocktails() {
+    this.cocktailService.getRandomCocktails().subscribe({
+      next: (response) => {
+        this.cocktails = response.drinks.slice(0, 5); // Solo mostramos 5 cócteles para el carrusel
+      },
+      error: (error) => {
+        console.error('❌ Error al obtener cócteles:', error);
+      },
     });
   }
 }

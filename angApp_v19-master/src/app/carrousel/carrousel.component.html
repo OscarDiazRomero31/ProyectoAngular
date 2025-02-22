@@ -1,0 +1,29 @@
+<div id="cocktailCarousel" class="carousel slide mt-0 mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div *ngIf="cocktails.length > 0; else noData">
+        <div *ngFor="let cocktail of cocktails; let i = index">
+          <div class="carousel-item" [class.active]="i === 0">
+            <img [src]="cocktail.strDrinkThumb" class="d-block w-100" [alt]="cocktail.strDrink">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>{{ cocktail.strDrink }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <ng-template #noData>
+        <p>Cargando imágenes...</p>
+      </ng-template>
+    </div>
+  
+    <button class="carousel-control-prev" type="button" data-bs-target="#cocktailCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+  
+    <button class="carousel-control-next" type="button" data-bs-target="#cocktailCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+  
