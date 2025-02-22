@@ -1,0 +1,94 @@
+/* Centrado del contenido en la página */
+.collage-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas para las 2 imágenes */
+  gap: 20px; /* Espaciado entre las imágenes */
+  padding: 20px;
+  justify-items: center; /* Centra las imágenes dentro de cada celda */
+  align-items: center; /* Centra las imágenes verticalmente */
+  width: 100%;
+  height: 70vh; /* Altura completa de la vista menos el botón */
+  margin-bottom: 20px; /* Para separar del pie de página */
+}
+
+/* Estilo de las imágenes dentro del collage */
+.collage-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen dentro del collage */
+.collage-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la proporción de las imágenes */
+  transition: transform 0.3s ease;
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Efecto de escala al pasar el mouse */
+.collage-item:hover .collage-image {
+  transform: scale(1.1); /* Agranda la imagen */
+}
+
+/* Overlay que muestra el nombre del cóctel */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.collage-item:hover .overlay {
+  opacity: 1; /* Muestra el overlay al hacer hover */
+}
+
+.overlay h5 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Estilo del botón de recarga */
+.reload-button {
+  text-align: center; /* Centra el botón en la página */
+  margin-top: 20px; /* Espacio arriba del botón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: #007bff; /* Color azul de fondo */
+  color: white; /* Color blanco del texto */
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Color azul más oscuro al pasar el mouse */
+}
+
+.btn i {
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+}

@@ -1,0 +1,22 @@
+<div class="collage-container">
+  <div *ngIf="cocktails.length > 0; else noData">
+    <div class="collage-item" *ngFor="let cocktail of cocktails">
+      <img [src]="cocktail.strDrinkThumb" class="collage-image" [alt]="cocktail.strDrink">
+      <div class="overlay">
+        <h5>{{ cocktail.strDrink }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje mientras se cargan las imágenes -->
+  <ng-template #noData>
+    <p>Cargando imágenes...</p>
+  </ng-template>
+</div>
+
+<!-- Botón de recarga con ícono de Font Awesome -->
+<div class="reload-button">
+  <button (click)="reloadImages()" class="btn btn-primary">
+    <i class="fas fa-sync-alt"></i> Recargar Imágenes
+  </button>
+</div>
