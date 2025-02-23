@@ -1,0 +1,86 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contacto-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo del formulario */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  input[type="text"], input[type="email"] {
+    width: 100%;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 150px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+  }
+  
+  /* Estilo del botón */
+  button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  /* Estilo para mensajes de error */
+  small {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Estilo para el formulario en dispositivos móviles */
+  @media (max-width: 600px) {
+    .contacto-container {
+      width: 95%;
+      padding: 15px;
+    }
+  }
+  
