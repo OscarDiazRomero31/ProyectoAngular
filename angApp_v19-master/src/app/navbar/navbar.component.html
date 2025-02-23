@@ -1,16 +1,24 @@
-<nav>
-<ul class="navbar-nav mx-3">
-  <li class="nav-item">
-    <a class="nav-link" routerLink="/">Inicio</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="favorites" routerLinkActive="active">Favoritos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="search" routerLinkActive="active">Buscador</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" routerLink="contacto" routerLinkActive="active">Contacto</a>
-  </li>    
-</ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- Logo FontAwesome -->
+    <a class="navbar-brand" href="/">
+      <i class="fas fa-cocktail"></i> Mi App de Cocteles
+    </a>
+
+    <!-- Botones del menú -->
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/favorites" routerLinkActive="active">Favoritos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/search" routerLinkActive="active">Buscador</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a>
+      </li>
+    </ul>
+  </div>
 </nav>
