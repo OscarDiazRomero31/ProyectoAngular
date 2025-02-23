@@ -1,0 +1,12 @@
+<div class="image-container">
+  <h2>Imágenes Aleatorias de Cocteles</h2>
+  
+  <!-- Mostrar 4 imágenes -->
+  <div class="images">
+    <div *ngFor="let image of images" class="image-item">
+      <img [src]="image" alt="Coctel aleatorio" />
+    </div>
+  </div>
+
+  <button (click)="reloadImages()">Recargar</button>
+</div>

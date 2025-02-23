@@ -1,0 +1,38 @@
+.image-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 columnas */
+  gap: 20px;  /* Espacio entre las imágenes */
+  margin-bottom: 20px;
+}
+
+.image-item {
+  width: 100%;
+  text-align: center;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+  max-width: 250px;  /* Ajustar tamaño máximo de la imagen */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #218838;
+}

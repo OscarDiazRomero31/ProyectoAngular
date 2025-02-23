@@ -1,0 +1,43 @@
+.home-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .description ul {
+    text-align: left;
+    margin-left: 40px;
+  }
+  
+  .description ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .description ul li strong {
+    color: #28a745;  /* Color verde para los títulos de las características */
+  }
+  
+  /* Estilos para el componente de imágenes aleatorias */
+  app-random-images {
+    margin-top: 40px;
+  }
+  
