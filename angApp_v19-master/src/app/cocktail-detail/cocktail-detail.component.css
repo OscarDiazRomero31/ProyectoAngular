@@ -1,0 +1,30 @@
+.cocktail-detail-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.cocktail-detail-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  max-height: 300px;
+}
+
+.ingredients-list {
+  margin-top: 20px;
+}
+
+.ingredients-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ingredients-list li {
+  font-size: 18px;
+  color: #777;
+}

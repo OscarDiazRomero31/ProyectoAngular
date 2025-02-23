@@ -6,17 +6,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CocktailService {
-  private apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/';  // URL base de la API
+  private apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1';
 
   constructor(private http: HttpClient) {}
 
-  // Obtener un cóctel aleatorio
-  getRandomCocktail(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}random.php`);
+  buscarCocktailPorNombre(nombre: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search.php?s=${nombre}`);
   }
 
-  // Buscar cócteles por nombre
-  searchCocktailByName(name: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}search.php?s=${name}`);
+  buscarCocktailPorLetra(letra: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search.php?f=${letra}`);
+  }
+
+  buscarCocktailPorIngrediente(ingrediente: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/filter.php?i=${ingrediente}`);
+  }
+
+  buscarCocktailsAlcoholicos(tipo: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/filter.php?a=${tipo}`);
+  }
+
+  obtenerCocktailPorId(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/lookup.php?i=${id}`);
   }
 }

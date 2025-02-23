@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { CollageComponent } from '../collage/collage.component';
+import { CocktailService } from '../cocktail.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  imports: [CollageComponent],  
+  imports: [],  
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent  {
 
-
-  
 }

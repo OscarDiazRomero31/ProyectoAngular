@@ -1,0 +1,83 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Estilo del formulario de búsqueda */
+input,
+select,
+button {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+
+select {
+  width: 150px;
+}
+
+/* Botón de búsqueda */
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Estilo de la lista de cócteles */
+.cocktail-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cocktail-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px); /* 3 elementos por fila */
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.cocktail-item:hover {
+  transform: scale(1.05);
+}
+
+.cocktail-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  max-height: 200px; /* Limitar el tamaño de la imagen */
+}
+
+.cocktail-item button {
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cocktail-item button:hover {
+  background-color: #e76a00;
+}

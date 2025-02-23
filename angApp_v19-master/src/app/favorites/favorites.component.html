@@ -1,0 +1,21 @@
+<div class="favorites-container">
+  <h2>Favoritos</h2>
+
+  <div class="cocktail-list" *ngIf="favorites.length > 0">
+    <div *ngFor="let cocktail of favorites" class="cocktail-item">
+      <img [src]="cocktail.strDrinkThumb" alt="{{ cocktail.strDrink }}" />
+      <h3>{{ cocktail.strDrink }}</h3>
+      
+      <!-- Enlace para ver los detalles del cóctel -->
+      <a [routerLink]="['/cocktail', cocktail.idDrink]">
+        <button>Ver Detalles</button>
+      </a>
+
+      <button (click)="eliminarDeFavoritos(cocktail)">Quitar de Favoritos</button>
+    </div>
+  </div>
+
+  <div *ngIf="favorites.length === 0">
+    <p>No tienes cócteles favoritos.</p>
+  </div>
+</div>

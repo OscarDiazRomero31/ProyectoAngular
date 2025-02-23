@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CollageComponent } from './collage.component';
+import { CocktailDetailComponent } from './cocktail-detail.component';
 
-describe('CollageComponent', () => {
-  let component: CollageComponent;
-  let fixture: ComponentFixture<CollageComponent>;
+describe('CocktailDetailComponent', () => {
+  let component: CocktailDetailComponent;
+  let fixture: ComponentFixture<CocktailDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CollageComponent]
+      imports: [CocktailDetailComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CollageComponent);
+    fixture = TestBed.createComponent(CocktailDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

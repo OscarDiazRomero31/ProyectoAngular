@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <input [(ngModel)]="query" placeholder="Buscar por nombre" />
+    <input [(ngModel)]="ingrediente" placeholder="Buscar por ingrediente" />
+    
+    <!-- Nueva opción para filtrar por letra -->
+    <input [(ngModel)]="letter" placeholder="Buscar por letra" maxlength="1" />
+    
+    <button (click)="buscarCocktails()">Buscar</button>
+  </div>
+
+  <div class="cocktail-list" *ngIf="cocktails.length > 0">
+    <div *ngFor="let cocktail of cocktails" class="cocktail-item">
+      <img [src]="cocktail.strDrinkThumb" alt="{{ cocktail.strDrink }}" />
+      <h3>{{ cocktail.strDrink }}</h3>
+      
+      <a [routerLink]="['/cocktail', cocktail.idDrink]">
+        <button>Ver Detalles</button>
+      </a>
+
+      <button (click)="agregarAFavoritos(cocktail)">Agregar a Favoritos</button>
+    </div>
+  </div>
+</div>
