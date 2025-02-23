@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   cocktails: any[] = [];
   query: string = '';
   ingrediente: string = '';
-  letter: string = '';  // Nueva propiedad para la búsqueda por letra
+  letter: string = '';
 
   constructor(private cocktailService: CocktailService) {}
 

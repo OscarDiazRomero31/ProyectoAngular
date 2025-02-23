@@ -6,7 +6,6 @@
       <img [src]="cocktail.strDrinkThumb" alt="{{ cocktail.strDrink }}" />
       <h3>{{ cocktail.strDrink }}</h3>
       
-      <!-- Enlace para ver los detalles del cóctel -->
       <a [routerLink]="['/cocktail', cocktail.idDrink]">
         <button>Ver Detalles</button>
       </a>
