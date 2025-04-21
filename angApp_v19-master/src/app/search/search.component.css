@@ -11,34 +11,46 @@ body {
   margin: 0 auto;
 }
 
-/* Estilo del formulario de búsqueda */
-input,
-select,
-button {
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+/* Estilo del formulario de búsqueda centrado y responsive */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
 }
 
-input[type="text"] {
-  width: 100%;
+/* Input principal de búsqueda más ancho */
+.search-form input[type="text"],
+.search-form input {
+  width: 400px;
+  max-width: 90%;
 }
 
-select {
+/* Select y botón ajustados */
+.search-form select {
   width: 150px;
 }
 
+.search-form input,
+.search-form select,
+.search-form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
 /* Botón de búsqueda */
-button {
+.search-form button {
   background-color: #28a745;
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 16px;
 }
 
-button:hover {
+.search-form button:hover {
   background-color: #218838;
 }
 
@@ -70,14 +82,75 @@ button:hover {
   max-height: 200px; /* Limitar el tamaño de la imagen */
 }
 
+/* Removemos el estilo forzado para todos los botones dentro de cocktail-item */
 .cocktail-item button {
-  background-color: #ff7f00;
-  color: white;
   border: none;
   cursor: pointer;
   margin-top: 10px;
 }
 
-.cocktail-item button:hover {
+/* Estilo base para botones de favoritos */
+.boton-favorito {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Estilo cuando NO está en favoritos (naranja) */
+.boton-agregar {
+  background-color: #ff7f00;
+  color: white;
+}
+
+.boton-agregar:hover {
   background-color: #e76a00;
+}
+
+/* Estilo cuando YA está en favoritos (verde) */
+.boton-ya-agregado {
+  background-color: #28a745;
+  color: white;
+}
+
+.boton-ya-agregado:hover {
+  background-color: #218838;
+}
+
+/* 🔥 Estilo para el botón "Ver Detalles" */
+.boton-ver-detalles {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.boton-ver-detalles:hover {
+  background-color: #218838;
+}
+
+/* Abecedario */
+.abecedario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px 0;
+  gap: 8px;
+}
+
+.abecedario span {
+  cursor: pointer;
+  padding: 6px 10px;
+  background-color: #ddd;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.abecedario span:hover {
+  background-color: #bbb;
 }

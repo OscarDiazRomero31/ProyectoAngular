@@ -1,23 +1,46 @@
 <div class="container">
-  <div>
-    <input [(ngModel)]="query" placeholder="Buscar por nombre" />
-    <input [(ngModel)]="ingrediente" placeholder="Buscar por ingrediente" />
+  <div class="search-form">
+    <input [(ngModel)]="busquedaGeneral" placeholder="Buscar cóctel por nombre, ingrediente o letra" />
     
-    <input [(ngModel)]="letter" placeholder="Buscar por letra" maxlength="1" />
-    
+    <select [(ngModel)]="tipo">
+      <option value="">Tipo de bebida</option>
+      <option value="Alcoholic">Alcohólico</option>
+      <option value="Non_Alcoholic">No alcohólico</option>
+    </select>
+
     <button (click)="buscarCocktails()">Buscar</button>
   </div>
+
+  <div *ngIf="cocktails.length === 0 && busquedaRealizada">
+    <p>No se encontraron resultados.</p>
+  </div>
+
+  <div *ngIf="busquedaRealizada" class="abecedario">
+    <span *ngFor="let letra of abecedario" (click)="buscarPorLetra(letra)">
+      {{ letra }}
+    </span>
+  </div>  
 
   <div class="cocktail-list" *ngIf="cocktails.length > 0">
     <div *ngFor="let cocktail of cocktails" class="cocktail-item">
       <img [src]="cocktail.strDrinkThumb" alt="{{ cocktail.strDrink }}" />
       <h3>{{ cocktail.strDrink }}</h3>
-      
+
       <a [routerLink]="['/cocktail', cocktail.idDrink]">
-        <button>Ver Detalles</button>
+        <button class="boton-ver-detalles">Ver Detalles</button>
       </a>
 
-      <button (click)="agregarAFavoritos(cocktail)">Agregar a Favoritos</button>
+      <button
+        (click)="agregarAFavoritos(cocktail)"
+        [disabled]="esFavorito(cocktail)"
+        class="boton-favorito"
+        [ngClass]="{
+          'boton-ya-agregado': esFavorito(cocktail),
+          'boton-agregar': !esFavorito(cocktail)
+        }"
+      >
+        {{ esFavorito(cocktail) ? '✅ Ya está en favoritos' : '➕ Agregar a Favoritos' }}
+      </button>
     </div>
   </div>
 </div>

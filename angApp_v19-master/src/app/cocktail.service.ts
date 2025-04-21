@@ -22,9 +22,13 @@ export class CocktailService {
     return this.http.get(`${this.apiUrl}/filter.php?i=${ingrediente}`);
   }
 
-  buscarCocktailsAlcoholicos(tipo: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/filter.php?a=${tipo}`);
+  buscarCocktailsAlcoholicos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/filter.php?a=Alcoholic`);
   }
+  
+  buscarCocktailsNoAlcoholicos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/filter.php?a=Non%20alcoholic`);
+  }  
 
   obtenerCocktailPorId(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/lookup.php?i=${id}`);
@@ -33,4 +37,8 @@ export class CocktailService {
   getRandomCocktails(): Observable<any> {
     return this.http.get(`${this.apiUrl}/random.php`);
   }
+
+  buscarCocktailPorTipo(tipo: string) {
+    return this.http.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${tipo}`);
+  }  
 }
