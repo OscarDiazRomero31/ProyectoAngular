@@ -1,20 +1,39 @@
 <div class="contacto-container">
-    <h2>Formulario de Contacto</h2>
-  
-    <form action="https://formspree.io/f/xnnjyzeq" method="POST">
-      <div>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required />
+  <h2>Formulario de Contacto</h2>
+
+  <form [formGroup]="contactoForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre"
+        [class.input-error]="contactoForm.get('nombre')?.invalid && contactoForm.get('nombre')?.touched" />
+      <div class="error" *ngIf="contactoForm.get('nombre')?.errors && contactoForm.get('nombre')?.touched">
+        <div *ngIf="contactoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</div>
+        <div *ngIf="contactoForm.get('nombre')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+        <div *ngIf="contactoForm.get('nombre')?.errors?.['pattern']">El nombre debe comenzar con mayúscula.</div>
       </div>
-      <div>
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" required />
+    </div>
+
+    <div class="form-group">
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" formControlName="correo"
+        [class.input-error]="contactoForm.get('correo')?.invalid && contactoForm.get('correo')?.touched" />
+      <div class="error" *ngIf="contactoForm.get('correo')?.errors && contactoForm.get('correo')?.touched">
+        <div *ngIf="contactoForm.get('correo')?.errors?.['required']">El correo electrónico es obligatorio.</div>
+        <div *ngIf="contactoForm.get('correo')?.errors?.['email']">Introduce un correo electrónico válido.</div>
       </div>
-      <div>
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" formControlName="mensaje"
+        [class.input-error]="contactoForm.get('mensaje')?.invalid && contactoForm.get('mensaje')?.touched"></textarea>
+      <div class="error" *ngIf="contactoForm.get('mensaje')?.errors && contactoForm.get('mensaje')?.touched">
+        <div *ngIf="contactoForm.get('mensaje')?.errors?.['required']">El mensaje es obligatorio.</div>
+        <div *ngIf="contactoForm.get('mensaje')?.errors?.['minlength']">El mensaje debe tener al menos 10 caracteres.</div>
       </div>
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <button type="submit" [disabled]="contactoForm.invalid">Enviar</button>
+  </form>
+</div>
