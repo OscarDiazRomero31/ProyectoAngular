@@ -26,7 +26,6 @@ export class SearchComponent implements OnInit {
     this.busquedaRealizada = true;
     const termino = this.busquedaGeneral.trim();
 
-    // ✅ Si no se escribió nada pero se seleccionó un tipo (alcohólico o no)
     if (!termino && this.tipo) {
       if (this.tipo === 'Alcoholic') {
         this.cocktailService.buscarCocktailsAlcoholicos().subscribe((data: any) => {
@@ -40,13 +39,11 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    // ❌ Si no hay ni término ni tipo, vaciamos
     if (!termino && !this.tipo) {
       this.cocktails = [];
       return;
     }
 
-    // 🔍 Si hay término, buscar por nombre, ingrediente y letra
     const observables = [
       this.cocktailService.buscarCocktailPorNombre(termino),
       this.cocktailService.buscarCocktailPorIngrediente(termino),
@@ -68,7 +65,6 @@ export class SearchComponent implements OnInit {
           index === self.findIndex(d => d.idDrink === drink.idDrink)
       );
 
-      // 🧪 Filtrar por tipo si se seleccionó
       if (this.tipo) {
         const tipoFormateado = this.tipo === 'Non_Alcoholic' ? 'Non alcoholic' : 'Alcoholic';
         this.cocktails = unicos.filter(c => c.strAlcoholic === tipoFormateado);
@@ -82,7 +78,7 @@ export class SearchComponent implements OnInit {
   }
 
   buscarPorLetra(letra: string) {
-    this.busquedaGeneral = letra; // opcional: mostrar la letra seleccionada en el input
+    this.busquedaGeneral = letra; 
     this.busquedaRealizada = true;
   
     this.cocktailService.buscarCocktailPorLetra(letra).subscribe((data: any) => {
@@ -97,7 +93,6 @@ export class SearchComponent implements OnInit {
     });
   }
   
-
   agregarAFavoritos(cocktail: any) {
     let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     if (!favorites.some((fav: any) => fav.idDrink === cocktail.idDrink)) {
